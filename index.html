@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Quiz Adaptive</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Kanit", sans-serif;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-slate-900 text-white min-h-screen flex items-center justify-center p-4"
+  >
+    <div
+      class="bg-slate-800 p-8 rounded-2xl shadow-2xl w-full max-w-md border border-slate-700"
+    >
+      <div id="quiz-ui">
+        <div class="flex flex-col space-y-2 mb-6 text-center">
+          <span
+            id="level-display"
+            class="bg-blue-600 px-3 py-1 rounded-lg text-sm font-bold text-white"
+            >กำลังโหลด...</span
+          >
+          <span
+            id="score-display"
+            class="text-slate-400 font-bold text-xs uppercase tracking-widest"
+            >ข้อที่ 1 / 5</span
+          >
+        </div>
+
+        <div class="mb-8 min-h-[80px] flex items-center justify-center">
+          <h2
+            id="question-text"
+            class="text-2xl font-semibold text-center leading-relaxed"
+          >
+            กำลังโหลดโจทย์...
+          </h2>
+        </div>
+
+        <div class="space-y-4">
+          <input
+            type="text"
+            id="user-answer"
+            autocomplete="off"
+            class="w-full bg-slate-900 border border-slate-600 rounded-xl p-4 text-center text-2xl focus:outline-none focus:border-blue-500 transition-all text-white"
+            placeholder="คำตอบของคุณ"
+          />
+          <button
+            onclick="handleAnswer()"
+            class="w-full bg-blue-600 hover:bg-blue-500 py-4 rounded-xl font-bold text-lg shadow-lg active:scale-95 transition-all"
+          >
+            ส่งคำตอบ
+          </button>
+        </div>
+      </div>
+
+      <div id="result-screen" class="hidden text-center space-y-6">
+        <h2 class="text-3xl font-bold text-blue-400">ประมวลผลเสร็จสิ้น!</h2>
+
+        <div
+          class="bg-slate-900 p-4 rounded-xl border border-slate-700 text-center"
+        >
+          <p class="text-slate-400 text-sm mb-4 italic underline">
+            ผลการประเมินแยกตามหัวข้อ
+          </p>
+          <div id="final-score" class="w-full"></div>
+        </div>
+
+        <button
+          onclick="sendScore()"
+          class="w-full bg-green-600 hover:bg-green-500 py-4 rounded-xl font-bold text-lg shadow-lg active:scale-95 transition-all"
+        >
+          บันทึกผลการทดสอบ
+        </button>
+        <p class="text-xs text-slate-500 italic">
+          *กรุณากดปุ่มด้านบนเพื่อส่งข้อมูลให้คุณครู
+        </p>
+      </div>
+    </div>
+    <script src="quiz.js"></script>
+  </body>
+</html>
